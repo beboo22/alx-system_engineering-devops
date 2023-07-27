@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# ls using for loop
-
-for file in *; do
-  echo "$file" | cut -d '-' -f 2;
+# Bash script that displays content
+for search in *
+do
+	echo "$search" | cut -d "-" -f 2
 done
