@@ -1,5 +1,5 @@
 # SSH Config File
-#
+# ssh client configuration
 Host web-01
 	Hostname 34.229.189.12
 	User ubuntu
