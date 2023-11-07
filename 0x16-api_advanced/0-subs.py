@@ -6,11 +6,14 @@ import requests
 
 
 def number_of_subscribers(subreddit):
+    """returns the number of subscribers for a given subreddit"""
+
     if subreddit is None or type(subreddit) is not str:
         return 0
 
     subreddit_url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     geting_inf = requests.get(subreddit_url)
+
     if geting_inf.status_code == 404:
         return 0
 
