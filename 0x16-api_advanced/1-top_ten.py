@@ -6,11 +6,18 @@ import requests
 
 
 def top_ten(subreddit):
-    if subreddit is None or type(subreddit) is not str:
+    """Print the titles of the 10 hottest posts on a given subreddit."""
+
+    subreddit_url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {
+        "User-Agent": "0x16-api_advanced:project:\
+v1.0.0 (by /u/firdaus_cartoon_jr)"
+    }
+    geting_inf = requests.get(subreddit_url, headers=headers)
+
+    if geting_inf.status_code == 404:
         return 0
 
-    subreddit_url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
-    geting_inf = requests.get(subreddit_url)
     data = geting_inf.json().get("data")
-    
-    print(data)
+    for c in data.get("children"):
+        print(c.get('data').get("title"))
