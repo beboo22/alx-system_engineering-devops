@@ -9,9 +9,9 @@ def count_words(subreddit, word_list):
     """
     count words
     """
-    sub_info = requests.get("https://www.reddit.com/r/{}/hot.json"
-                            .format(subreddit),
-                            headers={"User-Agent": "My-User-Agent"})
+    subreddit_url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    headers={"User-Agent": "My-User-Agent"}
+    sub_info = requests.get(subreddit_url,headers)
     if sub_info.status_code != 200:
         return None
     lis = recurse(subreddit)
