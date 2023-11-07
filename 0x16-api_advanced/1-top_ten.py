@@ -18,8 +18,9 @@ v1.0.0 (by /u/firdaus_cartoon_jr)"
     }
     geting_inf = requests.get(subreddit_url, headers=headers, params=params)
 
-    if geting_inf.status_code == 404:
-        return 0
+    if response.status_code == 404:
+        print("None")
+        return
 
     data = geting_inf.json().get("data")
     for c in data.get("children"):
